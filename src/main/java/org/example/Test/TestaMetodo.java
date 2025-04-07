@@ -1,3 +1,7 @@
+package org.example.Test;
+
+import org.example.entidade.Conta;
+
 public class TestaMetodo {
     public static void main(String[] args) {
         Conta conta = new Conta();

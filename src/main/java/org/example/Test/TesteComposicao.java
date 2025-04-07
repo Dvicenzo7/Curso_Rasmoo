@@ -1,3 +1,8 @@
+package org.example.Test;
+
+import org.example.entidade.Cliente;
+import org.example.entidade.Conta;
+
 public class TesteComposicao {
     public static void main(String[] args) {
         Cliente cliente = new Cliente();

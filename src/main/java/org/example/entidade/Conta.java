@@ -1,3 +1,5 @@
+package org.example.entidade;
+
 public class Conta {
 
     private int agencia;
@@ -5,12 +7,31 @@ public class Conta {
     private Cliente titular;
     private double saldo = 0.0;
 
+    //Atributo pertinente a classe e nao ao objeto
+    private static int total;
+
+    //Construtor Vazio
+    public Conta(){
+    }
+
+    //Construtr com parametros
+    public Conta(Cliente cliente, int numero, int agencia){
+        this.titular = cliente;
+        this.numero = numero;
+        this.agencia = agencia;
+
+        Conta.total++;
+        System.out.println("Total de contas é: " + total);
+    }
+
     public int getAgencia() {
         return agencia;
     }
 
     public void setAgencia(int agencia) {
-        this.agencia = agencia;
+        if(agencia > 0) {
+            this.agencia = agencia;
+        }
     }
 
     public int getNumero() {
@@ -51,11 +72,16 @@ public class Conta {
         }
     }
 
-    void transferir(double valor, Conta destino){
+    public void transferir(double valor, Conta destino){
          boolean conseguiuSacar = this.saque(valor);
 
          if(conseguiuSacar){
              destino.depositar(valor);
          }
     }
+
+    public static int getTotal() {
+        return total;
+    }
+
 }
