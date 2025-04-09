@@ -1,6 +1,8 @@
 package org.example.entidade;
 
-public class Conta {
+
+//Trabalhando com classe abstrata, tive que criar a Conta2, pois nao pode instanciar quando a classe e abstrata
+public abstract class Conta2 {
 
     private int agencia;
     private int numero;
@@ -11,17 +13,15 @@ public class Conta {
     private static int total;
 
     //Construtor Vazio
-    public Conta(){
+    public Conta2(){
     }
 
     //Construtr com parametros
-    public Conta(Cliente cliente, int numero, int agencia){
+    public Conta2(Cliente cliente, int numero, int agencia){
         this.titular = cliente;
         this.numero = numero;
         this.agencia = agencia;
 
-        Conta.total++;
-        System.out.println("Total de contas é: " + total);
     }
 
     public int getAgencia() {
@@ -72,7 +72,7 @@ public class Conta {
         }
     }
 
-    public void transferir(double valor, Conta destino){
+    public void transferir(double valor, Conta2 destino){
         boolean conseguiuSacar = this.saque(valor);
 
         if(conseguiuSacar){
@@ -80,7 +80,7 @@ public class Conta {
         }
     }
 
-
+    public abstract void gerarExtrato();
 
     public static int getTotal() {
         return total;
