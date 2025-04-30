@@ -1,5 +1,7 @@
 package org.example.entidade;
 
+import org.example.exception.SaldoInsuficienteException;
+
 public class Conta {
 
     private int agencia;
@@ -68,7 +70,7 @@ public class Conta {
             saldo -= valor;
             return true;
         }else {
-            return false;
+            throw new SaldoInsuficienteException("Saldo Insuficiente! R$" + this.saldo + " .Valor de Saque: R$" + valor) ;
         }
     }
 
